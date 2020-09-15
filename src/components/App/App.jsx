@@ -5,12 +5,17 @@ import { createStore, combineReducers } from "redux";
 
 import homePageState from "../HomePage/reducer";
 import newTaskPageState from "../NewTaskPage/reducer";
+import tasksState from "../../store/tasksReducer";
 
 import HomePage from "../HomePage";
 import PlanPage from "../PlanPage";
 import NewTaskPage from "../NewTaskPage";
 
-const combinedReducers = combineReducers({ homePageState, newTaskPageState });
+const combinedReducers = combineReducers({
+  homePageState,
+  newTaskPageState,
+  tasksState,
+});
 const store = createStore(combinedReducers);
 
 const App = () => {

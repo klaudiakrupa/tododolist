@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { SET_USER_NAME } from "./actionTypes";
 
+import TasksList from "./TasksList";
+
 const HomePage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ const HomePage = () => {
       {userName && (
         <div>
           <div>Dzień dobry, {userName}!</div>
+          <TasksList />
           <button onClick={() => history.push("plan")}>
             zobacz plan na dziś
           </button>

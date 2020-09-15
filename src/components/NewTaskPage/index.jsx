@@ -22,12 +22,12 @@ const NewTaskPage = () => {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          name="taskName"
+          name="name"
           ref={register({
             required: "Pole wymagane!",
           })}
         />
-        {errors.taskName && errors.taskName.message}
+        {errors.name && errors.name.message}
 
         <input
           name="date"
@@ -36,7 +36,7 @@ const NewTaskPage = () => {
             required: "Pole wymagane!",
           })}
         />
-        {errors.taskName && errors.taskName.message}
+        {errors.date && errors.date.message}
 
         <input
           name="time"
@@ -45,7 +45,7 @@ const NewTaskPage = () => {
             required: "Pole wymagane!",
           })}
         />
-        {errors.taskName && errors.taskName.message}
+        {errors.time && errors.time.message}
 
         <Controller
           name="labels"
