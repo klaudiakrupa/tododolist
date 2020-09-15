@@ -4,12 +4,13 @@ import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
 
 import homePageState from "../HomePage/reducer";
+import newTaskPageState from "../NewTaskPage/reducer";
 
 import HomePage from "../HomePage";
 import PlanPage from "../PlanPage";
 import NewTaskPage from "../NewTaskPage";
 
-const combinedReducers = combineReducers({ homePageState });
+const combinedReducers = combineReducers({ homePageState, newTaskPageState });
 const store = createStore(combinedReducers);
 
 const App = () => {
