@@ -1,4 +1,4 @@
-import { ADD_NEW_TASK, DELETE_TASK } from "./actionTypes";
+import { ADD_NEW_TASK, DELETE_TASK, TOGGLE_TASK } from "./actionTypes";
 
 const initialState = {
   maxTaskId: 0,
@@ -18,6 +18,15 @@ const tasksState = (state = initialState, action) => {
       return {
         ...state,
         tasks: state.tasks.filter((x) => x.taskId !== action.payload),
+      };
+    case TOGGLE_TASK:
+      return {
+        ...state,
+        tasks: state.tasks.map((x) => {
+          return x.taskId === action.payload
+            ? { ...x, isChecked: !x.isChecked }
+            : x;
+        }),
       };
     default:
       return state;
