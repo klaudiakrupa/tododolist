@@ -1,14 +1,19 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import TasksListItem from "./TasksListItem";
 
-const TasksList = () => {
-  const { tasks } = useSelector((state) => state.tasksState);
+const TasksList = ({ currentDate }) => {
+  const { dailyTasks } = useSelector((state) => state.tasksState);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: "SET_DAILY_TASKS", payload: currentDate });
+  }, [currentDate]);
 
   return (
     <div>
-      {tasks.map((x) => (
+      {dailyTasks.map((x) => (
         <TasksListItem key={x.taskId} task={x} />
       ))}
     </div>

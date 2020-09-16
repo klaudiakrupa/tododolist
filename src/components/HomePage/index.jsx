@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 import { SET_USER_NAME } from "./actionTypes";
 
 import TasksList from "./TasksList";
@@ -14,7 +13,6 @@ const HomePage = () => {
 
   const onClickHandler = () =>
     dispatch({ type: SET_USER_NAME, payload: usernameInputValue });
-
   return (
     <div>
       {!userName && (
@@ -28,7 +26,7 @@ const HomePage = () => {
       {userName && (
         <div>
           <div>Dzień dobry, {userName}!</div>
-          <TasksList />
+          <TasksList currentDate={new Date()} />
           <button onClick={() => history.push("plan")}>
             zobacz plan na dziś
           </button>
