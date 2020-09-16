@@ -4,7 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import CreatableSelect from "react-select/creatable";
 import { useDispatch, useSelector } from "react-redux";
 
-import { ADD_NEW_TASK } from "./actionTypes";
+import { ADD_NEW_TASK } from "../../store/actionTypes";
 
 const NewTaskPage = () => {
   const history = useHistory();

@@ -1,4 +1,4 @@
-import { ADD_NEW_TASK } from "../components/NewTaskPage/actionTypes";
+import { ADD_NEW_TASK, DELETE_TASK } from "./actionTypes";
 
 const initialState = {
   maxTaskId: 0,
@@ -14,7 +14,11 @@ const tasksState = (state = initialState, action) => {
         maxTaskId: maxTaskId,
         tasks: [...state.tasks, { ...action.payload, taskId: maxTaskId }],
       };
-
+    case DELETE_TASK:
+      return {
+        ...state,
+        tasks: state.tasks.filter((x) => x.taskId !== action.payload),
+      };
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import { ADD_NEW_TASK } from "./actionTypes";
+import { ADD_NEW_TASK } from "../../store/actionTypes";
 
 const initialState = {
   labels: [
