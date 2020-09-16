@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_USER_NAME } from "./actionTypes";
+import moment from "moment";
 
-import TasksList from "./TasksList";
+import TasksList from "../../shared/TasksList/TasksList";
 
 const HomePage = () => {
   const history = useHistory();
@@ -26,7 +27,7 @@ const HomePage = () => {
       {userName && (
         <div>
           <div>Dzień dobry, {userName}!</div>
-          <TasksList currentDate={new Date()} />
+          <TasksList currentDate={moment(new Date()).format("YYYY-MM-DD")} />
           <button onClick={() => history.push("plan")}>
             zobacz plan na dziś
           </button>

@@ -11,6 +11,8 @@ import HomePage from "../HomePage";
 import PlanPage from "../PlanPage";
 import NewTaskPage from "../NewTaskPage";
 
+import components from "./styles";
+
 const combinedReducers = combineReducers({
   homePageState,
   newTaskPageState,
@@ -19,10 +21,11 @@ const combinedReducers = combineReducers({
 const store = createStore(combinedReducers);
 
 const App = () => {
+  const { Main } = components;
   return (
     <Provider store={store}>
       <Router>
-        <div>
+        <Main>
           <Switch>
             <Route exact path="/">
               <HomePage />
@@ -34,7 +37,7 @@ const App = () => {
               <NewTaskPage />
             </Route>
           </Switch>
-        </div>
+        </Main>
       </Router>
     </Provider>
   );

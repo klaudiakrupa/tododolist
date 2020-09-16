@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import TasksListItem from "./TasksListItem";
@@ -9,7 +9,7 @@ const TasksList = ({ currentDate }) => {
 
   useEffect(() => {
     dispatch({ type: "SET_DAILY_TASKS", payload: currentDate });
-  }, [currentDate]);
+  }, [dispatch, currentDate]);
 
   return (
     <div>

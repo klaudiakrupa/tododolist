@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import moment from "moment";
 import "moment/locale/pl";
 
-import TasksList from "../HomePage/TasksList";
+import TasksList from "../../shared/TasksList/TasksList";
 
 moment.locale("pl");
 
@@ -15,7 +15,9 @@ const addDays = (date, days) => {
 
 const PlanPage = () => {
   const history = useHistory();
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState(
+    moment(new Date()).format("YYYY-MM-DD")
+  );
   const [days, setDays] = useState([]);
 
   useEffect(() => {
