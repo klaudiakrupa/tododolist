@@ -5,6 +5,7 @@ import CreatableSelect from "react-select/creatable";
 import { useDispatch, useSelector } from "react-redux";
 
 import { ADD_NEW_TASK } from "../../store/actionTypes";
+import Button from "../../shared/Button";
 
 const NewTaskPage = () => {
   const history = useHistory();
@@ -55,7 +56,7 @@ const NewTaskPage = () => {
           control={control}
         />
 
-        <button type="submit">Dodaj</button>
+        <Button type="submit" text="dodaj zadanie" color="dark" />
       </form>
     </div>
   );

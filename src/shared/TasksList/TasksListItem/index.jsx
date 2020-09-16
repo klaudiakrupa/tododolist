@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { TOGGLE_TASK, DELETE_TASK } from "../../../store/actionTypes";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import components from "./styles";
 
@@ -14,6 +15,7 @@ const TasksListItem = (props) => {
     Label,
     TaskName,
     DeleteIcon,
+    TextBox,
   } = components;
 
   const { name, time, labels, taskId, isChecked } = props.task;
@@ -29,9 +31,11 @@ const TasksListItem = (props) => {
       <TimeBox>{time}</TimeBox>
       <TaskBox>
         <CheckBox onClick={onCheckToggle} isChecked={isChecked} />
-        <Label>{labels.map((x) => x.label).join()}</Label>
-        <TaskName>{name}</TaskName>
-        <DeleteIcon onClick={onDeleteClicked}>DELETE</DeleteIcon>
+        <TextBox>
+          <Label>{labels.map((x) => x.label).join()}</Label>
+          <TaskName>{name}</TaskName>
+        </TextBox>
+        <DeleteIcon icon={faTrash} onClick={onDeleteClicked} />
       </TaskBox>
     </TaskItem>
   );

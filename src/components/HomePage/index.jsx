@@ -5,6 +5,7 @@ import { SET_USER_NAME } from "./actionTypes";
 import moment from "moment";
 
 import TasksList from "../../shared/TasksList/TasksList";
+import Button from "../../shared/Button";
 
 import components from "./styles";
 
@@ -15,7 +16,6 @@ const HomePage = () => {
     Main,
     MainWithoutUsername,
     MainWithUsername,
-    Button,
   } = components;
 
   const history = useHistory();
@@ -31,7 +31,7 @@ const HomePage = () => {
         <MainWithoutUsername>
           <div>Jak się nazywasz?</div>
           <input onChange={(e) => setUsernameInputValue(e.target.value)} />
-          <button onClick={onClickHandler}>to jest moje imię</button>
+          <Button onClick={onClickHandler} text="To moje imię" color="dark" />
         </MainWithoutUsername>
       )}
 
@@ -40,14 +40,18 @@ const HomePage = () => {
           <WelcomeText>
             Dzień dobry, <Name>{userName}!</Name>
           </WelcomeText>
-	<TasksList currentDate={moment(new Date()).format("YYYY-MM-DD")} />
+          <TasksList currentDate={moment(new Date()).format("YYYY-MM-DD")} />
 
-          <Button onClick={() => history.push("plan")}>
-            zobacz plan na dziś
-          </Button>
-          <button onClick={() => history.push("dodaj-zadanie")}>
-            dodaj nowe zadanie
-          </button>
+          <Button
+            onClick={() => history.push("plan")}
+            text="zobacz plan na dziś"
+            color="light"
+          />
+          <Button
+            onClick={() => history.push("dodaj-zadanie")}
+            text="dodaj nowe zadanie"
+            color="dark"
+          />
         </MainWithUsername>
       )}
     </Main>

@@ -7,8 +7,10 @@ export default {
     top: 2rem;
     right: 2rem;
     opacity: 0.5;
+    z-index: 0;
   `,
   Main: styled.div`
+    z-index: 10;
     background: rgb(236, 244, 243);
     background: linear-gradient(
       180deg,

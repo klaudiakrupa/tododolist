@@ -33,25 +33,4 @@ export default {
     font-weight: 700;
     color: #056674;
   `,
-
-  Button: styled.button`
-    width: 90%;
-    height: 3rem;
-    border-radius: 0 0 1rem 1rem;
-    border: none;
-    background-color: #e9e9e9;
-    font-family: "Montserrat", sans-serif;
-    letter-spacing: 1px;
-    font-weight: 500;
-    color: #9c9c9c;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-    font-size: 1rem;
-    transition: all 0.3s;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #056674;
-      color: #fff;
-    }
-  `,
 };
