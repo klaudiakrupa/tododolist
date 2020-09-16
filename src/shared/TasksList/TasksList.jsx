@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import TasksListItem from "../TaskList/TasksListItem";
+import TasksListItem from "./TasksListItem";
 
 const TasksList = ({ currentDate }) => {
   const { dailyTasks } = useSelector((state) => state.tasksState);

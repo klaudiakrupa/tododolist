@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_USER_NAME } from "./actionTypes";
+import moment from "moment";
 
-import TasksList from "../../shared/TaskList/TasksList";
+import TasksList from "../../shared/TasksList/TasksList";
 
 import components from "./styles";
 
@@ -39,7 +40,8 @@ const HomePage = () => {
           <WelcomeText>
             Dzień dobry, <Name>{userName}!</Name>
           </WelcomeText>
-          <TasksList currentDate={new Date()} />
+	<TasksList currentDate={moment(new Date()).format("YYYY-MM-DD")} />
+
           <Button onClick={() => history.push("plan")}>
             zobacz plan na dziś
           </Button>
