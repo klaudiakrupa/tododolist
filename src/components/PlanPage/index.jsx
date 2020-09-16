@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import moment from "moment";
 import "moment/locale/pl";
 
-import TasksList from "../HomePage/TasksList";
+import TasksList from "../../shared/TaskList/TasksList";
 
 moment.locale("pl");
 
