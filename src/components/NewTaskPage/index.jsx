@@ -6,8 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { ADD_NEW_TASK } from "../../store/actionTypes";
 import Button from "../../shared/Button";
+import BackButton from "../../shared/BackButton";
+
+import components from "./styles";
 
 const NewTaskPage = () => {
+  const { PageName, NameInput } = components;
+
   const history = useHistory();
   const { handleSubmit, register, errors, control } = useForm();
   const dispatch = useDispatch();
@@ -19,10 +24,16 @@ const NewTaskPage = () => {
 
   return (
     <div>
-      <button onClick={() => history.push("plan")}>cofnij</button>
+      <BackButton onClick={() => history.push("plan")} />
+      <PageName>
+        Dodaj
+        <br />
+        nowe zadanie
+      </PageName>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
+        <NameInput
+          placeholder="Nazwa zadania"
           name="name"
           ref={register({
             required: "Pole wymagane!",
@@ -54,6 +65,9 @@ const NewTaskPage = () => {
           isMulti
           options={labels}
           control={control}
+          ref={register({
+            required: "Pole wymagane!",
+          })}
         />
 
         <Button type="submit" text="dodaj zadanie" color="dark" />

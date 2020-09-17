@@ -5,6 +5,8 @@ import "moment/locale/pl";
 
 import TasksList from "../../shared/TasksList/TasksList";
 import Button from "../../shared/Button";
+import BackButton from "../../shared/BackButton";
+import ProgressBar from "../../shared/ProgressBar";
 
 import components from "./styles";
 
@@ -17,7 +19,8 @@ const addDays = (date, days) => {
 };
 
 const PlanPage = () => {
-  const { DateBox, DayBox, Dates } = components;
+  const { DateBox, DayBox, Dates, MonthName } = components;
+
   const history = useHistory();
   const [currentDate, setCurrentDate] = useState(
     moment(new Date()).format("YYYY-MM-DD")
@@ -35,8 +38,8 @@ const PlanPage = () => {
 
   return (
     <div>
-      <button onClick={() => history.push("/")}>cofnij</button>
-      {moment(currentDate).format("MMMM")}
+      <BackButton onClick={() => history.push("/")} />
+      <MonthName>{moment(currentDate).format("MMMM")}</MonthName>
       <Dates>
         {days.map((x) => (
           <DateBox
@@ -49,6 +52,7 @@ const PlanPage = () => {
           </DateBox>
         ))}
       </Dates>
+      <ProgressBar />
       <TasksList currentDate={currentDate} />
       <Button
         onClick={() => history.push("dodaj-zadanie")}

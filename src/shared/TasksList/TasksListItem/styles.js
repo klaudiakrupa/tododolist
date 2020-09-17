@@ -24,21 +24,72 @@ export default {
     display: flex;
     align-items: center;
     padding: 1rem;
-  `,
-
-  CheckBox: styled.div`
-    width: 1.2rem;
-    height: 1.2rem;
-    border: 4px solid #313131;
-    border-radius: 50%;
     transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    ${(props) =>
+      props.hover &&
+      `
+    opacity: 0.1;
+`}
 
     ${(props) =>
       props.isChecked &&
       `
-    border: 4px solid #C0C7C0;
-    background-color: #C0C7C0;
+      opacity: 0.35;
+
   `}
+  `,
+  CheckBoxContainer: styled.div`
+    width: 1.1rem;
+    height: 1.1rem;
+    transition: all 0.3s;
+    border-radius: 50%;
+    border: 0.3rem solid #313131;
+    background-color: #fff;
+    cursor: pointer;
+
+    ${(props) =>
+      props.hover &&
+      `
+      border: 0.3rem solid #c0c7c0;
+  `}
+
+    ${(props) =>
+      props.isChecked &&
+      `
+      border: 0.3rem solid #c0c7c0;
+  `}
+  `,
+
+  CheckBox: styled(FontAwesomeIcon)`
+  position: fixed;
+    font-size: 1.1rem;
+    color: #fff
+    transition: all 0.3s;
+    text-align: center;
+    color: #c0c7c0;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    ${(props) =>
+      props.isChecked &&
+      `
+      opacity: 1;
+  `}
+
+  ${(props) =>
+    props.hover &&
+    `
+    opacity: 1;
+`}
   `,
 
   Label: styled.div`
@@ -59,6 +110,12 @@ export default {
 
   DeleteIcon: styled(FontAwesomeIcon)`
     color: #c7c8c8;
+    cursor: pointer;
+
+    &:hover {
+      color: #ff4b5c;
+      opacity: 1;
+    }
   `,
 
   TextBox: styled.div`

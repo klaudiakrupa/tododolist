@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export default {
+  MonthName: styled.h1`
+    color: #056674;
+    font-size: 2.5rem;
+  `,
   DateBox: styled.div`
     background-color: #fff;
     width: 15%;

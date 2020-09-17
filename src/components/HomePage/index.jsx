@@ -6,16 +6,20 @@ import moment from "moment";
 
 import TasksList from "../../shared/TasksList/TasksList";
 import Button from "../../shared/Button";
+import ProgressBar from "../../shared/ProgressBar";
 
 import components from "./styles";
 
 const HomePage = () => {
   const {
+    PageName,
+    NameInput,
     WelcomeText,
     Name,
     Main,
     MainWithoutUsername,
     MainWithUsername,
+    DayHeader,
   } = components;
 
   const history = useHistory();
@@ -29,8 +33,8 @@ const HomePage = () => {
     <Main>
       {!userName && (
         <MainWithoutUsername>
-          <div>Jak się nazywasz?</div>
-          <input onChange={(e) => setUsernameInputValue(e.target.value)} />
+          <PageName>Jak się nazywasz?</PageName>
+          <NameInput onChange={(e) => setUsernameInputValue(e.target.value)} />
           <Button onClick={onClickHandler} text="To moje imię" color="dark" />
         </MainWithoutUsername>
       )}
@@ -40,8 +44,12 @@ const HomePage = () => {
           <WelcomeText>
             Dzień dobry, <Name>{userName}!</Name>
           </WelcomeText>
+          <ProgressBar text />
+          <div>
+            <DayHeader>Dziś</DayHeader>
+            <div>{moment(new Date()).format("DD MMMM")}</div>
+          </div>
           <TasksList currentDate={moment(new Date()).format("YYYY-MM-DD")} />
-
           <Button
             onClick={() => history.push("plan")}
             text="zobacz plan na dziś"
